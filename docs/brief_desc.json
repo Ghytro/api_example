@@ -1,0 +1,151 @@
+1. //get запрос /jija/{имя жижи}  - при переходе на жижу запрос для отображения
+
+    //ответ 
+    {
+        "id": 001, 
+        "name": "Random jija",
+        "image": "./random_jija.png",
+        "availability": "true",
+        "category": "Bake",
+        "strengths": ["0mg", "3mg", "6mg", "12mg", ""], 
+        "volumes": [10, 30, 60, 100],
+        "doppings": ["chocolate", "cola", "ice", "cum"],
+        "brief_description": " ... ",
+        "description":" ... ",
+        
+    }
+
+
+2. //GET  /jija/{name jija}/comments
+
+{ответ
+    "comments": [
+        {"user_id": "Ваня Лохов", time:"", text: "adsasdadws", rate: 2}, 
+        {}
+    ]
+}
+
+//POST запрос jija/{name jija}/addComment
+{
+    "id": 001,
+    "comment":{text: "adsasdadws", rate: 2}
+}
+
+3. //get запрос /jija/{имя жижи}/price - при выборе крепости и обЪема
+
+{
+    "id": 001,
+    "strength": "3mg", 
+    "volume": 60,
+    "dopping": "chocolate"
+}
+
+4. передача в корзину 
+
+//post ответ /jija/{name jija}/add_to_cart
+
+{    
+        "id": 001,
+        "strength": "3mg", 
+        "volume": 60,
+        "dopping": "chocolate"
+}
+
+5. регистрация / авторизация 
+
+a) Post ответ /account/reg
+
+reg
+{
+    // одно из
+    "contacts": {
+        "phone": "+72984712786342",
+        "vk": "https://asdljkfhas",
+        "telegram": "https://asdjkfhs",
+        "mail": "aljsdfhlas",   
+    }
+
+    "login": "222",
+    "password": "WARFWRDR",
+    "name": "aksjdfhas"
+}
+
+whoami
+{
+    "contacts":{
+        "phone": "+72984712786342",
+        "vk": "https://asdljkfhas",
+        "telegram": "https://asdjkfhs",
+        "mail": "aljsdfhlas"
+    }
+
+    "login": "222",
+    "password": "WARFWRDR",
+    "name": "aksjdfhas"
+}
+
+b) get запрос login /account/aut/
+
+{
+    "login": "aaffafaa",
+    "password": "afwawfafw"
+}
+
+7. передача содержимого из корзины на бекенд
+//post ответ /jija/cart
+
+{
+    "cart": [
+        {"id": 001, "strength": "3 mg", "volume": 60,"dopping": "chocolate", "amount": 3},
+        {"id": 002, "strength": "6 mg", "volume": 100,"dopping": "chocolate", "amount": 1}
+    ],
+}
+
+8. Создание заказа
+/order/unauthorized
+// po
+{
+    "cart": [
+        {"id": 001, "strength": "3 mg", "volume": 60,"dopping": "chocolate", "amount": 3},
+        {"id": 002, "strength": "6 mg", "volume": 100,"dopping": "chocolate", "amount": 1}
+    ],
+    "comment": "alksdjfaljksdfh",
+    "contact": {
+        // одно из
+        "vk": "alskjdfa",
+        "telegram": "askdjfhasf",
+        "phone": "alsdjkfhalskjdfh",
+        "mail": "aksdjfhs",
+    },
+    "address": "askldjfhas"
+}
+
+9. Категории
+
+get запрос
+/category/{category_name}
+
+ответ:
+{
+    "category": {
+        "name": "asjlkdfas",
+        "liquids": [
+            {
+                "id": 001, 
+                "name": "Random jija",
+                "image": "./random_jija.png",
+                "availability": "true",
+                "category": "Bake",
+                "strengths": ["0mg", "3mg", "6mg", "12mg", ""], 
+                "volumes": [10, 30, 60, 100],
+                "doppings": ["chocolate", "cola", "ice", "cum"],
+                "brief_description": " ... ",
+                "description":" ... ",
+                
+            },
+            {
+                
+            }
+        ]
+    }
+}
